@@ -46,7 +46,6 @@ app.post("/edit-event", async (req, res)=>{
   }
 })
 
-
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );

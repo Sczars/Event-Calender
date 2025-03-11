@@ -1,0 +1,285 @@
+.drop-down {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 280px;
+}
+
+.dropdown > button {
+  height: 60px;
+  width: 100%;
+
+  background-color: #7790ff;
+  border: solid #707070 1px;
+  font-size: 1.375rem;
+}
+
+.dropdown-events {
+  width: 280px;
+  max-height: 320px;
+
+  border: solid #cdcdcd 1px;
+  border-top: none;
+}
+
+.dropdown-overflow {
+  overflow-y: scroll;
+}
+
+.dropdown-events > .event-option {
+  border-bottom: solid #cdcdcd 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #fcf1f1;
+  height: 100px;
+}
+
+.event-option:nth-last-child(1) {
+  border: none;
+}
+
+.event-option > button {
+  display: block;
+  height: 100%;
+
+  background-color: #fcf1f1;
+  border: none;
+}
+
+.event-option > button:hover {
+  background-color: #fab1b1;
+}
+
+.event-detail {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 340px;
+  margin: 10px;
+  gap: 5px;
+
+  border: solid #000 1px;
+  background-color: #ffffff;
+}
+
+.event-detail > p {
+  padding: 0;
+  margin: 0;
+}
+
+.event-detail > .status {
+  flex-shrink: 0;
+  width: 20px;
+  height: 60px;
+}
+
+.event-detail > .onGoing,
+.popup > .status.onGoing,
+.ss-header > p.onGoing {
+  background-color: #667ed5;
+}
+
+.event-detail > .Finished,
+.popup > .status.Finished,
+.ss-header > p.Finished {
+  background-color: #96f5a4;
+}
+
+.event-detail > .Miss,
+.popup > .status.Miss,
+.ss-header > p.Miss {
+  background-color: #6e6e6e;
+}
+
+.popup-section {
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+
+  z-index: 2;
+
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.popup {
+  width: 520px;
+  min-height: 250px;
+  background-color: #fff;
+  border: solid #000 1px;
+
+  display: flex;
+  flex-direction: row;
+
+  flex: 0 0;
+}
+
+.popup > .status {
+  width: 50px;
+  margin: 30px 20px;
+  flex-shrink: 0;
+}
+
+.popup > .detail {
+  display: flex;
+  flex-direction: column;
+  background-color: #e1dede;
+  justify-content: center;
+
+  margin: 30px 30px 30px 0;
+  padding: 20px 30px;
+
+  position: relative;
+  width: 350px;
+}
+
+.popup > .detail > h1 {
+  font-weight: bolder;
+}
+
+.popup > .detail > p {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+.popup > .detail  p > span {
+  font-weight: bold;
+  text-align: start;
+}
+
+.popup > .detail > form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  font-size: 1.25rem;
+}
+
+.popup > .detail > form input,
+.popup > .detail > form select {
+  box-sizing: border-box;
+  width: 250px;
+}
+
+.popup > .detail > form label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.popup > .detail > form input,
+.popup > .detail > form select {
+  font-size: 1.125rem;
+  padding: 0px 0px 0px 5px;
+  border: none;
+}
+
+.popup > .detail > form textarea {
+  font-size: 1.125rem;
+  height: 100px;
+  border: none;
+}
+
+.popup > .detail > form > #event-form-id {
+  display: none;
+}
+
+.popup > .detail h1 {
+  margin: 20px 0 10px;
+}
+
+.popup > .detail .popup-event,
+.popup > .detail .discard-change {
+  height: 30px;
+  margin-top: 10px;
+  background-color: #cdcdcd;
+  border: solid #fff 1px;
+  color: #fff;
+}
+
+.popup > .detail .popup-event {
+  background-color: #ff6969;
+}
+
+.popup > .detail p {
+  padding: 0;
+  margin: 0;
+
+  font-size: 1.25rem;
+}
+
+.popup .type {
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  margin: 0;
+
+  right: 10px;
+  top: 10px;
+  border-radius: 50%;
+}
+
+.popup-section .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  height: 35px;
+  width: 35px;
+
+  border: none;
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-section .close:hover {
+  border: solid #cdcdcd 1px;
+}
+
+.popup .note {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.popup .note-container {
+  text-align: start;
+}
+
+.popup .type {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.75rem;
+  border: solid #000 1px;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}

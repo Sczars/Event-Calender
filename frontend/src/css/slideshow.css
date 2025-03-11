@@ -1,0 +1,104 @@
+.slideshow {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  position: relative;
+
+  gap: 10px;
+  width: 280px;
+  height: 230px;
+}
+
+.slideshow > p {
+  font-size: 2rem;
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+}
+
+.slideshow > .ss-header {
+  display: flex;
+  align-items: center;
+
+  padding-left: 10px;
+  margin: 15px 15px 5px;
+  gap: 5px;
+}
+
+.ss-header > h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ss-header.Normal,
+.popup .detail.Normal, .day > .strip.Normal {
+  background-color: #eef8b5;
+}
+
+.ss-header.Extreme,
+.popup .detail.Extreme, .day > .strip.Extreme {
+  background-color: #ff715c;
+  color: white;
+}
+
+.ss-header.Caution,
+.popup .detail.Caution, .day > .strip.Caution {
+  background-color: #ffad81;
+  color: white;
+}
+
+.ss-header > p {
+  min-width: 15px;
+  height: 40px;
+}
+
+.ss-detail {
+  margin: 0px 15px 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ss-detail > p {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.slideshow > button {
+  position: absolute;
+  background-color: #00000074;
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  width: 20%;
+
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.slideshow > button:hover {
+  opacity: 1;
+}
+
+.slideshow > button.right {
+  right: 0;
+}
+
+.slideshow > button.left {
+  left: 0;
+}

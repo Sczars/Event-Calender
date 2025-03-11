@@ -1,0 +1,99 @@
+.calender-container {
+  width: 900px;
+  height: 90vh;
+  padding: 15px;
+
+  border: solid #000 1px;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  background-color: #f7eee2;
+
+  box-sizing: border-box;
+}
+
+.calender-container > header {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.calender {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  text-align: center;
+  gap: 5px;
+}
+
+.day-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin: 10px 0px 5px;
+}
+
+.day {
+  border: 1px #000 solid;
+  border-radius: 5px;
+  background-color: #fdfafa;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 70px;
+  margin: 0;
+
+  position: relative;
+}
+
+.day > p {
+  margin: 0;
+}
+
+.day .strip{
+  margin: 0;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  width: 80%;
+  box-sizing: border-box;
+
+  border: solid #000 1px;
+  border-radius: 5px;
+}
+
+.day .strip.overflow {
+  padding-right: 8px;
+}
+
+.day.today {
+  background-color: #9cc8ed;
+}
+
+.day > .event-counter {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+
+  width: 20px;
+  height: 20px;
+
+  background-color: #ea1818;
+  border: solid #fff 1px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.8rem;
+  color: #fff;
+}
