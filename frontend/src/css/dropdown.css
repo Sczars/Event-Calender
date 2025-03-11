@@ -104,6 +104,10 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
+  gap: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: solid #000 1px;
 
   z-index: 2;
 
@@ -250,6 +254,8 @@
 
 .popup-section .close:hover {
   border: solid #cdcdcd 1px;
+  background-color: #ff6969;
+  color: #fff;
 }
 
 .popup .note {
