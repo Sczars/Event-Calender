@@ -12,7 +12,7 @@ function SlideShow(props) {
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [index]);
+  }, [index, props.items.length]);
 
   function changePrev() {
     setIndex((prev) => (prev - 1 + props.items.length) % props.items.length);
