@@ -77,7 +77,7 @@ function Calender(props) {
           </div>
         ))}
 
-        {isClick !== null && (
+        {isClick !== null && isClick.length > 0 && (
           <PopUp
             items={isClick}
             setPopup={setIsClick}

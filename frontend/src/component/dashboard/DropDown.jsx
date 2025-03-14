@@ -74,15 +74,14 @@ function DropDown(props) {
       } else {
         props.setIsShown(0);
       }
-    }
-    else {
-      alert("There is no event")
+    } else {
+      alert("There is no event");
     }
   }
 
   return (
     <>
-      <div className="dropdown">
+      <div className={`dropdown${isClicked ? " popIn" : ""}`}>
         <button onClick={toggleShown}>
           Event this {props.id === "dd-week" ? "week" : "month"}
         </button>

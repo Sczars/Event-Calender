@@ -1,0 +1,29 @@
+.popIn {
+  animation: 0.5s popIn 0s 1 normal forwards;
+}
+
+.fadeIn {
+  animation: 0.5s fadeIn 0s 1 normal forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    scale: 1.125;
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

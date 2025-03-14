@@ -118,7 +118,7 @@ function Popup(props) {
     <>
       <div className="background"></div>
 
-      <section className="popup-section">
+      <section className="popup-section fadeIn">
         {props.items.map((item, index) => (
           <div key={`event-${index}`} className="popup">
             <div className={`status ${item.status}`}></div>
