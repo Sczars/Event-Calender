@@ -16,10 +16,19 @@ const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 function Calender(props) {
   const [daysEvents, setDaysEvents] = useState([]);
   const [isClick, setIsClick] = useState(null);
+  const [indexUpdate, setIndexUpdate] = useState(0)
 
   const currDate = new Date();
   const firstDay = startOfMonth(currDate);
   const lastDay = endOfMonth(currDate);
+
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setIndexUpdate(prev => prev+1)
+    }, 3000);
+
+    return ()=> clearTimeout(timer)
+  },[indexUpdate])
 
   const daysInMonth = eachDayOfInterval({
     start: firstDay,
@@ -66,10 +75,10 @@ function Calender(props) {
             <p>{format(day.day, "d")}</p>
             <div
               className={`strip${
-                day.events[0]?.name.length >= 14 ? " overflow" : ""
-              } ${day.events[0]?.type}`}
+                day.events[indexUpdate % day.events.length]?.name.length >= 14 ? " overflow" : ""
+              } ${day.events[indexUpdate % day.events.length]?.type} ${day.events?.length === 0&&" border"}`}
             >
-              {day.events[0]?.name}
+              {day.events[indexUpdate % day.events.length]?.name}
             </div>
             {day.events.length > 0 && (
               <button className="event-counter">{day.events.length}</button>

@@ -55,7 +55,7 @@
   margin: 0;
 }
 
-.day .strip{
+.day .strip {
   margin: 0;
   display: -webkit-box;
   line-clamp: 1;
@@ -63,15 +63,18 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 
-  width: 80%;
+  width: 100%;
+  margin-top: 5px;
   box-sizing: border-box;
+}
 
+.day .strip.border {
   border: solid #000 1px;
-  border-radius: 5px;
+  width: 80%;
 }
 
 .day .strip.overflow {
-  padding-right: 8px;
+  padding-right: 5px;
 }
 
 .day.today {

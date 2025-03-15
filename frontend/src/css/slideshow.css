@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  border-radius: 8px;
   position: relative;
 
+  margin-top: 20px;
   gap: 10px;
   width: 280px;
   height: 230px;
@@ -42,18 +44,21 @@
 }
 
 .ss-header.Normal,
-.popup .detail.Normal, .day > .strip.Normal {
+.popup .detail.Normal,
+.day > .strip.Normal {
   background-color: #eef8b5;
 }
 
 .ss-header.Extreme,
-.popup .detail.Extreme, .day > .strip.Extreme {
+.popup .detail.Extreme,
+.day > .strip.Extreme {
   background-color: #ff715c;
   color: white;
 }
 
 .ss-header.Caution,
-.popup .detail.Caution, .day > .strip.Caution {
+.popup .detail.Caution,
+.day > .strip.Caution {
   background-color: #ffad81;
   color: white;
 }
@@ -79,7 +84,7 @@
 
 .slideshow > button {
   position: absolute;
-  background-color: #00000074;
+  background-color: #00000030;
   color: #fff;
   border: none;
   font-size: 1.5rem;
@@ -89,6 +94,14 @@
   bottom: 0;
   opacity: 0;
   transition: 0.3s ease;
+}
+
+.slideshow > button.right {
+  border-radius: 0px 8px 8px 0px;
+}
+
+.slideshow > button.left {
+  border-radius: 8px 0px 0px 8px;
 }
 
 .slideshow > button:hover {

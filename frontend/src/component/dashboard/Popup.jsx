@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import "../../css/popup.css";
 
 function Popup(props) {
   const [isEdited, setIsEdited] = useState(false);
@@ -55,62 +56,67 @@ function Popup(props) {
 
   function detailEdited(item) {
     return (
-      <form action={editEvent}>
-        <input
-          name="id"
-          type="text"
-          defaultValue={item.id}
-          id="event-form-id"
-        />
-        <label>
-          Type:
-          <select name="type" required defaultValue={item.type}>
-            <option value="default" disabled>
-              ---Choose event type---
-            </option>
-            <option value="Normal">Normal</option>
-            <option value="Caution">Caution</option>
-            <option value="Extreme">Extreme</option>
-          </select>
-        </label>
-        <label>
-          Status:
-          <select name="status" required defaultValue={item.status}>
-            <option value="default" disabled>
-              ---Choose event status---
-            </option>
-            <option value="onGoing">onGoing</option>
-            <option value="Finished">Finished</option>
-            <option value="Miss">Miss</option>
-          </select>
-        </label>
-        <label>
-          Name:
-          <input name="name" type="text" defaultValue={item.name} />
-        </label>
-        <label>
-          Date:
-          <input name="date" type="text" defaultValue={item.date} />
-        </label>
-        <label>
-          Duration:
-          <input name="duration" type="text" defaultValue={item.duration} />
-        </label>
-        <label>Note:</label>
-        <textarea name="note" defaultValue={item.note}></textarea>
-        <button
-          type="button"
-          className="discard-change"
-          onClick={() => {
-            setIsEdited((prev) => !prev);
-          }}
-        >
-          Discard
-        </button>
-        <button type="submit" className="popup-event">
-          Save
-        </button>
-      </form>
+      <div className="popup">
+        <div className={`status ${item.status}`}></div>
+        <div className={`detail ${item.type}`}>
+          <form action={editEvent}>
+            <input
+              name="id"
+              type="text"
+              defaultValue={item.id}
+              id="event-form-id"
+            />
+            <label>
+              Type:
+              <select name="type" required defaultValue={item.type}>
+                <option value="default" disabled>
+                  ---Choose event type---
+                </option>
+                <option value="Normal">Normal</option>
+                <option value="Caution">Caution</option>
+                <option value="Extreme">Extreme</option>
+              </select>
+            </label>
+            <label>
+              Status:
+              <select name="status" required defaultValue={item.status}>
+                <option value="default" disabled>
+                  ---Choose event status---
+                </option>
+                <option value="onGoing">onGoing</option>
+                <option value="Finished">Finished</option>
+                <option value="Miss">Miss</option>
+              </select>
+            </label>
+            <label>
+              Name:
+              <input name="name" type="text" defaultValue={item.name} />
+            </label>
+            <label>
+              Date:
+              <input name="date" type="text" defaultValue={item.date} />
+            </label>
+            <label>
+              Duration:
+              <input name="duration" type="text" defaultValue={item.duration} />
+            </label>
+            <label>Note:</label>
+            <textarea name="note" defaultValue={item.note}></textarea>
+            <button
+              type="button"
+              className="discard-change"
+              onClick={() => {
+                setIsEdited(false);
+              }}
+            >
+              Discard
+            </button>
+            <button type="submit" className="popup-event">
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
     );
   }
 
@@ -118,54 +124,56 @@ function Popup(props) {
     <>
       <div className="background"></div>
 
-      <section className="popup-section fadeIn">
-        {props.items.map((item, index) => (
-          <div key={`event-${index}`} className="popup">
-            <div className={`status ${item.status}`}></div>
-            <div className={`detail ${item.type}`}>
-              {!isEdited ? (
-                <>
-                  <h1>
-                    {item.name}
-                    <button
-                      onClick={() => {
-                        setIsEdited((prev) => !prev);
-                      }}
-                      className="type"
-                    >
-                      &#8942;
-                    </button>
-                  </h1>
-                  <p>
-                    <span>Date:</span> {item.date}
-                  </p>
-                  <p>
-                    <span>Duration:</span> {item.duration}s
-                  </p>
-                  <div className="note-container">
-                    <p><span>Note:</span></p>
-                    <p className="note">
-                      {item.note}
+      <section
+        className={`popup-section fadeIn${
+          props.items.length > 1 ? " overflow" : ""
+        }`}
+      >
+        {isEdited === false
+          ? props.items.map((item, index) => (
+              <div key={`event-${index}`} className="popup">
+                <div className={`status ${item.status}`}></div>
+                <div className={`detail ${item.type}`}>
+                  <>
+                    <h1>
+                      {item.name}
+                      <button
+                        onClick={() => {
+                          setIsEdited(index);
+                        }}
+                        className="type"
+                      >
+                        &#8942;
+                      </button>
+                    </h1>
+                    <p>
+                      <span>Date:</span> {item.date}
                     </p>
-                  </div>
-                  <button
-                    className="popup-event"
-                    onClick={() => {
-                      delEvent(item);
-                      closePopup();
-                    }}
-                  >
-                    Delete
-                  </button>
-                </>
-              ) : (
-                detailEdited(item)
-              )}
-            </div>
-          </div>
-        ))}
+                    <p>
+                      <span>Duration:</span> {item.duration}s
+                    </p>
+                    <div className="note-container">
+                      <p>
+                        <span>Note:</span>
+                      </p>
+                      <p className="note">{item.note}</p>
+                    </div>
+                    <button
+                      className="popup-event"
+                      onClick={() => {
+                        delEvent(item);
+                        closePopup();
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </>
+                </div>
+              </div>
+            ))
+          : detailEdited(props.items[isEdited])}
         <div className="close" onClick={() => closePopup()}>
-          X
+          {"<=="}
         </div>
       </section>
     </>

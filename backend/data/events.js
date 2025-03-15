@@ -412,14 +412,5 @@ export default [
     "type": "Normal",
     "status": "Miss",
     "note": "Hello"
-  },
-  {
-    "id": "46",
-    "name": "Boss funeral",
-    "date": "2025-03-14",
-    "duration": "3600",
-    "type": "Normal",
-    "status": "Finished",
-    "note": "Sadge."
   }
 ]
