@@ -1,4 +1,4 @@
-import Calender from "./calender/Calender.jsx";
+import Calendar from "./calendar/Calendar.jsx";
 import DashBoard from "./dashboard/DashBoard.jsx";
 import "../css/main.css";
 import { useState, useEffect } from "react";
@@ -36,7 +36,7 @@ function Main() {
   return (
     <main>
       <DashBoard weekEvents={weekEvents} monthEvents={monthEvents} todayEvents={events} reRender={reRender}/>
-      <Calender getEvent={getEvent} monthEvents={monthEvents} reRender={reRender}/>
+      <Calendar getEvent={getEvent} monthEvents={monthEvents} reRender={reRender}/>
     </main>
   );
 }

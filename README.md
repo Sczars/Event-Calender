@@ -1,1 +1,1 @@
-# Event-Calender
+# Event-Calendar

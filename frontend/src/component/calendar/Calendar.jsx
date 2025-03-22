@@ -1,4 +1,4 @@
-import "../../css/calender.css";
+import "../../css/calendar.css";
 import PropTypes from "prop-types";
 import {
   eachDayOfInterval,
@@ -13,7 +13,7 @@ import PopUp from "../dashboard/Popup";
 
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-function Calender(props) {
+function Calendar(props) {
   const [daysEvents, setDaysEvents] = useState([]);
   const [isClick, setIsClick] = useState(null);
   const [indexUpdate, setIndexUpdate] = useState(0)
@@ -51,9 +51,9 @@ function Calender(props) {
   }, [props.monthEvents]);
 
   return (
-    <div className="calender-container">
+    <div className="calendar-container">
       <header>{format(currDate, "MMMM, yyyy")}</header>
-      <div className="calender">
+      <div className="calendar">
         {WEEKDAYS.map((i) => (
           <p className="day-name" key={i}>
             {i}
@@ -98,7 +98,7 @@ function Calender(props) {
   );
 }
 
-Calender.propTypes = {
+Calendar.propTypes = {
   getEvent: PropTypes.func.isRequired,
   monthEvents: PropTypes.arrayOf(
     PropTypes.shape({
@@ -114,4 +114,4 @@ Calender.propTypes = {
   reRender: PropTypes.func.isRequired,
 };
 
-export default Calender;
+export default Calendar;
